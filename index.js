@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 
-const myTeam[];
+const myTeam = [];
 
 
 function addManager(){
@@ -63,4 +63,25 @@ function addManager(){
         myTeam.push(manager);
     })
 };
+
+
+function addEmployee(){
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "What is the employees role?",
+            name: "employeeRole",
+            choices: ["Engineer","Intern"]
+        }
+    ]).then (function (answers){
+        switch(answers.employeeRole){
+            case "Engineer":
+                addEngineer();
+                break;
+            case "Intern":
+                addIntern();
+                break;
+        }
+    })
+}
 
