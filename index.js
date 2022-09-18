@@ -1,5 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+
+const createHTML = require("./lib/generateHTML");
+
 
 
 const myTeam = [];
@@ -87,8 +93,8 @@ function addEmployee(){
                 createTeam();
                 break
         }
-    })
-}
+    });
+};
 
 function addEngineer(){
     inquirer.prompt([
@@ -148,8 +154,8 @@ function addEngineer(){
         const engineer = new Engineer(data.engineerName, data.engineerID, data.engineerEmail, data.engineerGithub);
         myTeam.push(engineer);
         addEmployee();
-    })
-}
+    });
+};
 
 function addIntern(){
     inquirer.prompt([
@@ -209,5 +215,20 @@ function addIntern(){
         const intern = new Intern(data.internName, data.internID, data.internEmail, data.internSchool);
         myTeam.push(intern);
         addEmployee()
+    });
+};
+
+addManager()
+.then(addEmployee)
+.then(data =>{
+    const renderHTML = createHTML(data)
+
+    fs.writeFile('.index.html', renderHTML, err =>{
+        if(err){
+            console.log(err);
+            return;
+        }else{
+            console.log("Success! Your team has been created in the index.html file")
+        }
     })
-}
+});
