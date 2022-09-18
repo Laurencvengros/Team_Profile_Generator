@@ -54,15 +54,17 @@ function addManager(){
                 if(officeNumber){
                     return true;
                 }else{
-                    console.log("You must enter an office number")
+                    console.log("You must enter an office number");
+                    return false
                 }
             }
         },
-    ]).then (data =>{
-        const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.officeNumber);
-        myTeam.push(manager);
+     ]).then (data =>{
+         const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.officeNumber);
+         myTeam.push(manager);
+        addEmployee();
     })
-};
+ };
 
 
 function addEmployee(){
@@ -81,7 +83,70 @@ function addEmployee(){
             case "Intern":
                 addIntern();
                 break;
+            case "done":
+                createTeam();
+                break
         }
     })
 }
 
+function addEngineer(){
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Please enter the employee's name",
+            name: "engineerName",
+            validate: engineerName =>{
+                if(engineerName){
+                    return true;
+                }else{
+                    console.log("Employees name cannot be blank");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "Please Enter the employee's ID number",
+            name: "engineerID",
+            validate: engineerID =>{
+                if(engineerID){
+                    return true;
+                }else{
+                    console.log("Employee ID number required");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "Please Enter the employee's email address",
+            name: "engineerEmail",
+            validate: engineerEmail =>{
+                if(engineerEmail){
+                    return true;
+                }else{
+                    console.log("Employee email cannot be blank");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            mesasge: "Please enter the employees GitHub username",
+            name: "engineerGithub",
+            validate: engineerGithub =>{
+                if(engineerGithub){
+                    return true;
+                }else{
+                    console.log("Employee GitHub username required");
+                    return false;
+                }
+            }
+        }
+    ]).then (data => {
+        const engineer = new Engineer(data.engineerName, data.engineerID, data.engineerEmail, data.engineerGithub);
+        myTeam.push(engineer);
+        addEmployee();
+    })
+}
