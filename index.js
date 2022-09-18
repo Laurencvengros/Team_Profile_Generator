@@ -2,31 +2,65 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 
-const employees[];
+const myTeam[];
 
-function addEmployee(){
+
+function addManager(){
     inquirer.prompt([
         {
-            type: "list",
-            name: "employeeType",
-            message: "What is they employee's role?",
-            choices: ["Manager", "Engineer", "Intern", "finished" ]
+            type: "input",
+            message: "What is the Manager's name?",
+            name: "managerName",
+            validate: managerName => {
+                if(managerName){
+                    return true;
+                }else{
+                    console.log("Name cannot be blank");
+                    return false;
+                }
+            }
         },
-    ]).then(createEmployee =>{
-        switch (createEmployee.employeeType){
-            case "Manager":
-                addManager();
-                break;
-            case "Engineer":
-                addEngineer();
-                break;
-            case "Intern":
-                addIntern();
-                break;
-            case "finished":
-                createTeam();
-                break;
-        }
+        {
+            type: "input",
+            messgae: "What is your employee ID number?",
+            name: "managerID",
+            validate: managerID => {
+                if(managerID){
+                    return true;
+                }else{
+                    console.log("You must enter an ID number");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What is your email?",
+            name: "managerEmail",
+            validate: managerEmail =>{
+                if(managerEmail){
+                    return true;
+                }else{
+                    console.log("You must enter an email address");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What is your office number?",
+            name: "officeNumber",
+            validate: officeNumber =>{
+                if(officeNumber){
+                    return true;
+                }else{
+                    console.log("You must enter an office number")
+                }
+            }
+        },
+    ]).then (data =>{
+        const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.officeNumber);
+        myTeam.push(manager);
     })
-}
+};
 
