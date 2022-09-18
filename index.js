@@ -150,3 +150,64 @@ function addEngineer(){
         addEmployee();
     })
 }
+
+function addIntern(){
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "Please enter the employee's name",
+            name: "internName",
+            validate: internName =>{
+                if(internName){
+                    return true;
+                }else{
+                    console.log("Employees name cannot be blank");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "Please Enter the employee's ID number",
+            name: "internID",
+            validate: internID =>{
+                if(internID){
+                    return true;
+                }else{
+                    console.log("Employee ID number required");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "Please Enter the employee's email address",
+            name: "internEmail",
+            validate: internEmail =>{
+                if(internEmail){
+                    return true;
+                }else{
+                    console.log("Employee email cannot be blank");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "Please enter the employee's current school",
+            name: "internSchool",
+            validate: internSchool =>{
+                if(internSchool){
+                    return true;
+                }else{
+                    console.log("Please enter the name of the employee's school");
+                    return false;
+                }
+            }
+        }
+    ]).then(data =>{
+        const intern = new Intern(data.internName, data.internID, data.internEmail, data.internSchool);
+        myTeam.push(intern);
+        addEmployee()
+    })
+}
