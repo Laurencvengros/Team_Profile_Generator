@@ -1,3 +1,5 @@
+//(hmailahn) --> reference gitHub
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require("./lib/Manager");
@@ -223,7 +225,7 @@ addManager()
 .then(data =>{
     const renderHTML = createHTML(data)
 
-    fs.writeFile('.index.html', renderHTML, err =>{
+    fs.writeFile('index.html', renderHTML, err =>{
         if(err){
             console.log(err);
             return;
