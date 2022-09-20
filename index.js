@@ -5,8 +5,9 @@ const fs = require('fs');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const Employee = require('./lib/Employee.js');
 
-const createHTML = require("./lib/generateHTML");
+const createHTML = require("./dist/generateHTML");
 
 
 
@@ -81,7 +82,7 @@ function addEmployee(){
             type: "list",
             message: "What is the employees role?",
             name: "employeeRole",
-            choices: ["Engineer","Intern"]
+            choices: ["Engineer","Intern", "Finished Adding"]
         }
     ]).then (function (answers){
         switch(answers.employeeRole){
