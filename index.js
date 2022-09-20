@@ -21,8 +21,8 @@ function addManager(){
             type: "input",
             message: "What is your name?:",
             name: "managerName",
-            validate: name => {
-                if(name){
+            validate: managerName => {
+                if(managerName){
                     return true;
                 }else{
                     console.log("Name cannot be blank");
@@ -34,8 +34,8 @@ function addManager(){
             type: "input",
             messgae: "What is your employee ID number?:",
             name: "managerID",
-            validate: id => {
-                if(id){
+            validate: managerID => {
+                if(managerID){
                     return true;
                 }else{
                     console.log("You must enter an ID number");
@@ -47,8 +47,8 @@ function addManager(){
             type: "input",
             message: "What is your email?:",
             name: "managerEmail",
-            validate: email =>{
-                if(email){
+            validate: managerEmail =>{
+                if(managerEmail){
                     return true;
                 }else{
                     console.log("You must enter an email address");
@@ -70,7 +70,7 @@ function addManager(){
             }
         },
      ]).then (data =>{
-         const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
+         const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.officeNumber);
          myTeam.push(manager);
 
     addEmployee();
@@ -126,8 +126,8 @@ function addEngineer(){
             type: "input",
             message: "Please enter the engineer's name:",
             name: "engineerName",
-            validate: name =>{
-                if(name){
+            validate: engineerName =>{
+                if(engineerName){
                     return true;
                 }else{
                     console.log("Name cannot be blank");
@@ -139,8 +139,8 @@ function addEngineer(){
             type: "input",
             message: "Please Enter the engineer's ID number:",
             name: "engineerID",
-            validate: id =>{
-                if(id){
+            validate: engineerID =>{
+                if(engineerID){
                     return true;
                 }else{
                     console.log("Employee ID number required");
@@ -152,8 +152,8 @@ function addEngineer(){
             type: "input",
             message: "Please Enter the engineer's email address:",
             name: "engineerEmail",
-            validate: email =>{
-                if(email){
+            validate: engineerEmail =>{
+                if(engineerEmail){
                     return true;
                 }else{
                     console.log("Email cannot be blank");
@@ -165,8 +165,8 @@ function addEngineer(){
             type: "input",
             message: "Please enter the engineer's GitHub username:",
             name: "engineerGithub",
-            validate: github =>{
-                if(github){
+            validate: engineerGithub =>{
+                if(engineerGithub){
                     return true;
                 }else{
                     console.log(" GitHub username required");
@@ -175,7 +175,7 @@ function addEngineer(){
             }
         }
     ]).then (data => {
-        const engineer = new Engineer(data.name, data.id, data.email, data.github);
+        const engineer = new Engineer(data.engineerName, data.engineerID, data.engineerEmail, data.engineerGithub);
         myTeam.push(engineer);
         menu();
     });
@@ -187,8 +187,8 @@ function addIntern(){
             type: "input",
             message: "Please enter the Intern's name:",
             name: "internName",
-            validate: name =>{
-                if(name){
+            validate: internName =>{
+                if(internName){
                     return true;
                 }else{
                     console.log("Name cannot be blank");
@@ -200,8 +200,8 @@ function addIntern(){
             type: "input",
             message: "Please Enter the Intern's ID number:",
             name: "internID",
-            validate: id =>{
-                if(id){
+            validate: internID =>{
+                if(internID){
                     return true;
                 }else{
                     console.log("Employee ID number required:");
@@ -213,8 +213,8 @@ function addIntern(){
             type: "input",
             message: "Please Enter the Intern's email address:",
             name: "internEmail",
-            validate: email =>{
-                if(email){
+            validate: internEmail =>{
+                if(internEmail){
                     return true;
                 }else{
                     console.log("Email cannot be blank");
@@ -226,8 +226,8 @@ function addIntern(){
             type: "input",
             message: "Please enter the Intern's current school:",
             name: "internSchool",
-            validate: school =>{
-                if(school){
+            validate: internSchool =>{
+                if(internSchool){
                     return true;
                 }else{
                     console.log("School cannot be blank");
@@ -236,7 +236,7 @@ function addIntern(){
             }
         }
     ]).then(data =>{
-        const intern = new Intern(data.name, data.id, data.email, data.school);
+        const intern = new Intern(data.internName, data.internID, data.internEmail, data.internSchool);
         myTeam.push(intern);
         menu()
     });
