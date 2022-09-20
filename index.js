@@ -1,11 +1,11 @@
-
+//need to add to generateHTML.js for createTeam function to work
 
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const Employee = require('./lib/Employee.js');
+const Employee = require('./lib/Employee');
 
 const createHTML = require("./dist/generateHTML");
 
@@ -15,10 +15,11 @@ const myTeam = [];
 
 
 function addManager(){
+    console.log("Welcome to the Team Builder! To create your team, follow the prompts as they appear on the screen.")
     inquirer.prompt([
         {
             type: "input",
-            message: "What is the Manager's name?",
+            message: "What is your name?:",
             name: "managerName",
             validate: managerName => {
                 if(managerName){
@@ -31,7 +32,7 @@ function addManager(){
         },
         {
             type: "input",
-            messgae: "What is your employee ID number?",
+            messgae: "What is your employee ID number?:",
             name: "managerID",
             validate: managerID => {
                 if(managerID){
@@ -44,7 +45,7 @@ function addManager(){
         },
         {
             type: "input",
-            message: "What is your email?",
+            message: "What is your email?:",
             name: "managerEmail",
             validate: managerEmail =>{
                 if(managerEmail){
@@ -57,7 +58,7 @@ function addManager(){
         },
         {
             type: "input",
-            message: "What is your office number?",
+            message: "What is your office number?:",
             name: "officeNumber",
             validate: officeNumber =>{
                 if(officeNumber){
@@ -71,20 +72,43 @@ function addManager(){
      ]).then (data =>{
          const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.officeNumber);
          myTeam.push(manager);
-        addEmployee();
+
+    addEmployee();
     })
+    
+    
  };
 
 
-function addEmployee(){
-    inquirer.prompt([
+function menu(){
+    return inquirer.prompt([
         {
             type: "list",
-            message: "What is the employees role?",
-            name: "employeeRole",
-            choices: ["Engineer","Intern", "Finished Adding"]
+            message: "Would you like to add another an employee?:",
+            name: "addEmployee",
+            choices: ["Yes","No"]
         }
-    ]).then (function (answers){
+    ]).then (function(answers){
+            switch(answers.addEmployee){
+                case "Yes":
+                    employeeType();
+                    break;
+                case "No":
+                    createTeam();
+                    break;
+            }
+    });
+};
+
+function addEmployee(){
+    return inquirer.prompt([
+        {
+        type: "list",
+        message: "What is the employee's position?:",
+        name: "employeeRole",
+        choices: ["Engineer", "Intern"]
+        }
+    ]).then (function(answers){
         switch(answers.employeeRole){
             case "Engineer":
                 addEngineer();
@@ -92,9 +116,6 @@ function addEmployee(){
             case "Intern":
                 addIntern();
                 break;
-            case "done":
-                createTeam();
-                break
         }
     });
 };
@@ -103,20 +124,20 @@ function addEngineer(){
     inquirer.prompt([
         {
             type: "input",
-            message: "Please enter the employee's name",
+            message: "Please enter the engineer's name:",
             name: "engineerName",
             validate: engineerName =>{
                 if(engineerName){
                     return true;
                 }else{
-                    console.log("Employees name cannot be blank");
+                    console.log("Name cannot be blank");
                     return false;
                 }
             }
         },
         {
             type: "input",
-            message: "Please Enter the employee's ID number",
+            message: "Please Enter the engineer's ID number:",
             name: "engineerID",
             validate: engineerID =>{
                 if(engineerID){
@@ -129,26 +150,26 @@ function addEngineer(){
         },
         {
             type: "input",
-            message: "Please Enter the employee's email address",
+            message: "Please Enter the engineer's email address:",
             name: "engineerEmail",
             validate: engineerEmail =>{
                 if(engineerEmail){
                     return true;
                 }else{
-                    console.log("Employee email cannot be blank");
+                    console.log("Email cannot be blank");
                     return false;
                 }
             }
         },
         {
             type: "input",
-            mesasge: "Please enter the employees GitHub username",
+            message: "Please enter the engineer's GitHub username:",
             name: "engineerGithub",
             validate: engineerGithub =>{
                 if(engineerGithub){
                     return true;
                 }else{
-                    console.log("Employee GitHub username required");
+                    console.log(" GitHub username required");
                     return false;
                 }
             }
@@ -156,7 +177,7 @@ function addEngineer(){
     ]).then (data => {
         const engineer = new Engineer(data.engineerName, data.engineerID, data.engineerEmail, data.engineerGithub);
         myTeam.push(engineer);
-        addEmployee();
+        menu();
     });
 };
 
@@ -164,52 +185,52 @@ function addIntern(){
     inquirer.prompt([
         {
             type: "input",
-            message: "Please enter the employee's name",
+            message: "Please enter the Intern's name:",
             name: "internName",
             validate: internName =>{
                 if(internName){
                     return true;
                 }else{
-                    console.log("Employees name cannot be blank");
+                    console.log("Name cannot be blank");
                     return false;
                 }
             }
         },
         {
             type: "input",
-            message: "Please Enter the employee's ID number",
+            message: "Please Enter the Intern's ID number:",
             name: "internID",
             validate: internID =>{
                 if(internID){
                     return true;
                 }else{
-                    console.log("Employee ID number required");
+                    console.log("Employee ID number required:");
                     return false;
                 }
             }
         },
         {
             type: "input",
-            message: "Please Enter the employee's email address",
+            message: "Please Enter the Intern's email address:",
             name: "internEmail",
             validate: internEmail =>{
                 if(internEmail){
                     return true;
                 }else{
-                    console.log("Employee email cannot be blank");
+                    console.log("Email cannot be blank");
                     return false;
                 }
             }
         },
         {
             type: "input",
-            message: "Please enter the employee's current school",
+            message: "Please enter the Intern's current school:",
             name: "internSchool",
             validate: internSchool =>{
                 if(internSchool){
                     return true;
                 }else{
-                    console.log("Please enter the name of the employee's school");
+                    console.log("School cannot be blank");
                     return false;
                 }
             }
@@ -217,16 +238,17 @@ function addIntern(){
     ]).then(data =>{
         const intern = new Intern(data.internName, data.internID, data.internEmail, data.internSchool);
         myTeam.push(intern);
-        addEmployee()
+        menu()
     });
 };
 
-addManager()
-.then(addEmployee)
-.then(data =>{
-    const renderHTML = createHTML(data)
 
-    fs.writeFile('index.html', renderHTML, err =>{
+
+function createTeam(){
+
+    const renderHTML = createHTML(myTeam)
+
+    fs.writeFile('./index.html', renderHTML, err =>{
         if(err){
             console.log(err);
             return;
@@ -234,4 +256,8 @@ addManager()
             console.log("Success! Your team has been created in the index.html file")
         }
     })
-});
+
+}
+
+addManager()
+
