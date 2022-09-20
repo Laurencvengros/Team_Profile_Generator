@@ -28,8 +28,10 @@ const generateHTML = (data) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Team Generator</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
         
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="./dist/style.css">
     </head>
     
     <body>
@@ -59,16 +61,16 @@ ${generateCards(data)}
 
 const managerInfo = (data) => {
     return `
-    <div class="col-4-sm-12 justify-content-center m-3">
+    <div class="col-4-sm-12 justify-content-center">
     <div class="card" style="width: 18rem;">
-        <div class = "card header bg-primary text-white">
-            <h5 class="card-title bg-primary text-white">${data.getName()}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
-            <br>
+        <div class = "card-header text-white">
+            <h5 class="card-title text-white">${data.getName()}</h5>
+            <h6 class="card-subtitle mb-2 text-white"><i class="fas fa-mug-hot"></i> Manager</h6>
+            
         </div>
     
         <div class="card-body">
-            <ul class="list-group list-group-flush border">
+            <ul class="list-group">
                 <li class="list-group-item">Employee ID: ${data.id}</li>
                 <li class="list-group-item">Email: <a href="mailto:${data.email}">${data.email}</a></li>
                 <li class="list-group-item">Office Number: ${data.officeNumber}</li>
@@ -81,16 +83,16 @@ const managerInfo = (data) => {
 
 const internInfo = (data) => {
     return `
-    <div class="col-4-sm-12 justify-content-center m-3">
+    <div class="col-4-sm-12 justify-content-center">
     <div class="card" style="width: 18rem;">
-        <div class = "card header bg-primary text-white">
-            <h5 class="card-title bg-primary text-white">${data.getName()}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
-            <br>
+        <div class = "card-header text-white">
+            <h5 class="card-title text-white">${data.getName()}</h5>
+            <h6 class="card-subtitle mb-2 text-whited"><i class="fas fa-graduation-cap"></i> Intern</h6>
+            
         </div>
     
         <div class="card-body">
-            <ul class="list-group list-group-flush border">
+            <ul class="list-group">
                 <li class="list-group-item">Employee ID: ${data.id}</li>
                 <li class="list-group-item">Email: <a href="mailto:${data.email}">${data.email}</a></li>
                 <li class="list-group-item">School: ${data.school}</li>
@@ -103,16 +105,16 @@ const internInfo = (data) => {
 
 const engineerInfo = (data) => {
     return `
-    <div class="col-4-sm-12 justify-content-center m-3">
+    <div class="col-4-sm-12 justify-content-center">
     <div class="card" style="width: 18rem;">
-        <div class = "card header bg-primary text-white">
-            <h5 class="card-title bg-primary text-white">${data.getName()}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Manager</h6>
-            <br>
+        <div class = "card-header text-white">
+            <h5 class="card-title text-white">${data.getName()}</h5>
+            <h6 class="card-subtitle mb-2 text-white"><i class="fas fa-glasses"></i> Engineer</h6>
+            
         </div>
     
         <div class="card-body">
-            <ul class="list-group list-group-flush border">
+            <ul class="list-group">
                 <li class="list-group-item">Employee ID: ${data.id}</li>
                 <li class="list-group-item">Email: <a href="mailto:${data.email}">${data.email}</a></li>
                 <li class="list-group-item">GitHub: <a href="https://github.com/${data.github}" target="_blank">${data.github}</a></li>

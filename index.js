@@ -91,7 +91,7 @@ function menu(){
     ]).then (function(answers){
             switch(answers.addEmployee){
                 case "Yes":
-                    employeeType();
+                    addEmployee();
                     break;
                 case "No":
                     createTeam();
