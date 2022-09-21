@@ -32,7 +32,7 @@ function addManager(){
         },
         {
             type: "input",
-            messgae: "What is your employee ID number?:",
+            message: "What is your employee ID number?:",
             name: "managerID",
             validate: managerID => {
                 if(managerID){
