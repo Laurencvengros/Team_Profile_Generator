@@ -6,15 +6,15 @@ test("Can create a github.", () => {
     expect(employee.github).toBe(github);
 });
 
-test("Get gitHub", () => {
+test("Gets gitHub", () => {
     const testGithub = "githubtestaccount";
     const employee = new Engineer("Lauren", "1234", "test@email.com", testGithub);
     expect(employee.getGitHub()).toBe(testGithub);
-})
+});
 
-test("getRole function", () => {
+test("Tests engineer getRole function", () => {
     const returnEngineer = "Engineer";
     const employee = new Engineer("Lauren", "1234", "test@email.com", returnEngineer);
     expect(employee.getRole()).toBe(returnEngineer);
-})
+});
 
