@@ -53,7 +53,7 @@
 * To see an example of how the application works, watch the video below:
 
 
-![profile_generator-walkthrough](./src/Profile_Generator_Walkthrough.webm "Video walkthrough demoing terminal prompt to generate answers and create HTML" )
+[profile generator walkthrough](./src/Profile_Generator_Walkthrough.webm "Video walkthrough demoing terminal prompt to generate answers and create HTML" )
 
 
 ![prompt_screenshot](./src/images/Terminal_Prompt_Screenshot.jpg  "Screenshot of the terminal prompt questions" )
@@ -80,6 +80,7 @@
 ## Links
 
 * Link to application demo: https://watch.screencastify.com/v/FAnzLdm9keGSUzn418oW
+* Link to tests: https://watch.screencastify.com/v/nfnqOcyW30eO7EqpmKCG
 * Link to Github repository: https://github.com/Laurencvengros/Team_Profile_Generator
 
 ## Contact Me
