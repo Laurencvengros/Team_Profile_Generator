@@ -61,7 +61,7 @@ ${generateCards(data)}
 
 const managerInfo = (data) => {
     return `
-    <div class="col-4-sm-12 justify-content-center">
+    <div class="col-4-sm-12 ">
     <div class="card" style="width: 18rem;">
         <div class = "card-header text-white">
             <h5 class="card-title text-white">${data.getName()}</h5>
@@ -83,7 +83,7 @@ const managerInfo = (data) => {
 
 const internInfo = (data) => {
     return `
-    <div class="col-4-sm-12 justify-content-center">
+    <div class="col-4-sm-12">
     <div class="card" style="width: 18rem;">
         <div class = "card-header text-white">
             <h5 class="card-title text-white">${data.getName()}</h5>
@@ -105,7 +105,7 @@ const internInfo = (data) => {
 
 const engineerInfo = (data) => {
     return `
-    <div class="col-4-sm-12 justify-content-center">
+    <div class="col-4-sm-12 ">
     <div class="card" style="width: 18rem;">
         <div class = "card-header text-white">
             <h5 class="card-title text-white">${data.getName()}</h5>
