@@ -8,13 +8,15 @@
 
 2. [User Story](#user-story)
 
-1. [Installation](#installation)
+3. [Installation](#installation)
 
-2. [Usage](#usage)
+4. [Usage](#usage)
 
 5. [Tests](#tests)
 
-6. [Contact Me](#contact-me)
+6. [Links](#links)
+
+7. [Contact Me](#contact-me)
 
     
 
