@@ -9,7 +9,7 @@ test("Can create a github.", () => {
 test("Gets gitHub", () => {
     const testGithub = "githubtestaccount";
     const employee = new Engineer("Lauren", "1234", "test@email.com", testGithub);
-    expect(employee.getGitHub()).toBe(testGithub);
+    expect(employee.getGithub()).toBe(testGithub);
 });
 
 test("Tests engineer getRole function", () => {
