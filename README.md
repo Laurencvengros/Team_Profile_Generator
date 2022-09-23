@@ -50,10 +50,10 @@
 
 * Team Profile Generator is used to create a team of employees based on their roles. After answering all the prompts by adding all employees and thier information, an index.html file will be created where you can view the data in your browser.
 
-* To see an example of how the application works, watch the video below:
+* To see an example of how the application works, click the link to watch the video below:
 
 
-[profile generator walkthrough](./src/Profile_Generator_Walkthrough.webm "Video walkthrough demoing terminal prompt to generate answers and create HTML" )
+[Application Demo](./src/Profile_Generator_Walkthrough.webm "Video walkthrough demoing terminal prompt to generate answers and create HTML" )
 
 
 ![prompt_screenshot](./src/images/Terminal_Prompt_Screenshot.jpg  "Screenshot of the terminal prompt questions" )
@@ -66,6 +66,11 @@
 * This application can be tested using Jest.
 * use the terminal to test using the command npm run test 
 * The screenshots below show examples of passed tests
+
+*To see an example of passed tests, click the link below:
+
+[Pass Tests Demo](./src/Pass_Test_Video.webm "Video walkthrough demoing the application passing the jest tests" )
+
 
 ![Employee_Test_screenshot](./src/images/Employee_Pass_Test.jpg  "Screenshot of the employee test passing" )
 
